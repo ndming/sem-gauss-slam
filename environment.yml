@@ -1,0 +1,12 @@
+name: semgauss
+channels:
+  - nvidia/label/cuda-12.8.1
+  - conda-forge
+  - defaults
+dependencies:
+  - cmake=3.24
+  - cuda-toolkit=12.8
+  - gcc=11.4
+  - gxx=11.4
+  - python=3.10
+  - pip=25.2
