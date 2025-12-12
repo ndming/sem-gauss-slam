@@ -20,7 +20,7 @@ from datasets.gradslam_datasets import (
     load_dataset_config,
     ReplicaDataset,
     ScannetDataset,
-    TUMDataset,
+    # TUMDataset,
 )
 from utils.common_utils import seed_everything, save_params_ckpt, save_params
 from utils.eval_utils import report_progress, eval, decode_segmap

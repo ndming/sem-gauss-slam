@@ -56,22 +56,28 @@ sem_guass_slam has been benchmarked with Python 3.10, Pytorch 1.12.1 & CUDA=11.6
 The simplest way to install all dependences is to use [anaconda](https://www.anaconda.com/) and [pip](https://pypi.org/project/pip/) in the following steps: 
 
 ```bash
-conda create -n sem_gauss python=3.10
-conda activate sem_gauss
-conda install -c "nvidia/label/cuda-11.6.0" cuda-toolkit
-conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
+# conda create -n sem_gauss python=3.10
+# conda activate sem_gauss
+# conda install -c "nvidia/label/cuda-11.6.0" cuda-toolkit
+#conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
+conda env create --file environment.yml
+conda activate semgauss
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
 pip install -r requirements.txt
+pip install diff-gaussian-rasterization-w-depth_sem_gauss
+# pip install segmentation/facebookresearch_dinov2_main
 ```
 
 ## Usage
 
 We will use the replica dataset as an example to show how to use sem_guass_slam. The following steps are similar for other datasets.
 
+Please download the corresponding pth file of the dinov2 in [here](https://drive.google.com/drive/folders/1nJmYQxzT6bild9Jt8sn0oU0S6vlF60eR?usp=drive_link) and put it as: `checkpoints/dinov2_replica`.
+
 To run sem_guass_slam, please use the following command:
 ```bash
 python sem_gauss.py configs/replica/replica.py
 ```
-You should download the corresponding pth file of the dinov2 in [here](https://drive.google.com/drive/folders/1nJmYQxzT6bild9Jt8sn0oU0S6vlF60eR?usp=drive_link) before running the command above.
 
 To see the evaluation of the reconstructed mesh, please use the following command:
 ```bash
