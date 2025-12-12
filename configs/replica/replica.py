@@ -20,7 +20,7 @@ group_name = "Replica"
 run_name = f"{scene_name}_{seed}"
 
 config = dict(
-    workdir=f"./experiments/{group_name}",
+    workdir=f"./output/{group_name}",
     group_name=group_name,
     run_name=run_name,
     seed=seed,
@@ -42,7 +42,7 @@ config = dict(
     use_gt_semantic=False,
     model=dict(
         c_dim=16,    # feature dimension
-        pretrained_model_path=f"/data0/3dg/splatam/segmentation/replica/dinov2_replica.pth",
+        pretrained_model_path=f"./checkpoints/dinov2_replica.pth",
         n_classes=52, # number of nlasses 
         # 相机的参数
         crop_edge=0,
@@ -50,7 +50,7 @@ config = dict(
         W=1200,
     ),
     data=dict(
-        basedir="/data0/replica",
+        basedir="/home/minhnd59/datasets/replica",
         gradslam_data_cfg="./configs/data/replica.yaml",
         sequence=scene_name,
         desired_image_height=680,
